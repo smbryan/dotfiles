@@ -45,8 +45,12 @@ set foldmethod=syntax
 " Don't fold until told to 
 set nofoldenable
 
-" Disable to awful ALE highlighting
-"let g:ale_set_highlights = 0
-
 " Turn on spellcheck
 set spell
+
+" Maybe use a color scheme?
+colorscheme desert
+
+" Improve Kitty Integration
+set term=kitty
+
