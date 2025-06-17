@@ -1,0 +1,49 @@
+[includeIf "gitdir:~/src/**"]
+	path = ~/src/.gitconfig
+
+[includeIf "gitdir:~/smb/src/**"]
+	path = ~/smb/src/.gitconfig
+
+[init]
+	defaultBranch = main
+
+[core]
+    pager = delta
+    editor = vim
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    side-by-side = true
+    line-numbers = true
+
+    # delta detects terminal colors automatically; set one of these to disable auto-detection
+    # dark = true
+    # light = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    tool = meld
+    colorMoved = default
+
+[difftool]
+    prompt = false
+
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+
+[pull]
+    rebase = false
+
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+[http]
+	lowSpeedLimit = 100
+	lowSpeedTime = 600
